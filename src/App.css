@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+/* Fondo general */
+body {
+  background-color: #0d0d1a;
+  margin: 0;
+}
+p{
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1a1a2e;
+  border-bottom: 2px solid #e63946;
+  box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
+  height: 5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+}
+
+.logo {
+  height: 10em;
+  width: 10em;
+  object-fit: contain;
+  transition: filter 0.2s;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.6));
+}
+
+.roster-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 2rem auto;
+}
+
+.lineaUno,
+.lineaDos,
+.lineaTres {
+  display: flex;
+  gap: 4px;
+}
+
+.roster {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.roster:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) drop-shadow(0 0 6px rgba(0, 255, 204, 0.6));
+}
+.roster:active{
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+.content-inputs {
+  display: flex;
+  flex-direction: column; /* ← añade esto */
+  gap: 0.75rem;
+  background-color: #1a1a2e;
+  border: 2px solid #e63946;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.3), inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.player-input {
+  background-color: #0d0d1a;
+  border: 1px solid #444466;
+  border-radius: 3px;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 120px;
+}
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.personajes-seleccionados {
+  display: flex;
+  flex-wrap: wrap; /* ← salta a la siguiente línea */
+  gap: 4px;
+  max-width: 300px; /* ← ajusta este valor a lo que necesites */
+}
+
+
+.personaje-seleccionado {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.player-input::placeholder {
+  color: #556;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.player-input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+}
+
+.randomize {
+  background-color: #e63946;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.randomize:hover {
+  background-color: #c62f3b;
+  box-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
+}
+
+.randomize:active {
+  transform: scale(0.97);
+}
+
+.btn-seleccionar {
+  background-color: transparent;
+  border: 1px solid #00ffcc;
+  border-radius: 3px;
+  color: #00ffcc;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  transition: background-color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.btn-seleccionar:hover {
+  background-color: rgba(0, 255, 204, 0.1);
+  box-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+}
+
+.btn-seleccionar:active {
+  transform: scale(0.97);
+}
+
+.custom-loader {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  border:2px solid #0000;
+  border-radius: 50%;
+  border-color:#E4E4ED #0000;
+  animation: s6 1s infinite linear;
+}
+.custom-loader::before,
+.custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  margin:1px;
+  border:inherit;
+  border-radius: 50%;
+}
+.custom-loader::before {
+  border-color:#00ffcc #0000;
+  animation:inherit; 
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+.custom-loader::after {
+  margin:4px;
+}
+
+@keyframes s6 { 
+  100%{transform: rotate(1turn)}
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background-color: #1a1a2e;
+  border: 2px solid #e63946;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(230, 57, 70, 0.4);
+  min-width: 400px;
+  text-align: center;
+}
+
+.modal h2 {
+  color: #e63946;
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.modal-equipos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.modal-equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-equipo h3 {
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.modal-equipo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.modal-equipo p {
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.modal-equipo img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border: 1px solid #444466;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.3));
+}
+
+svg {
+    font-family: "Russo One", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+svg text {
+    animation: stroke 4s infinite alternate;
+    stroke-width: 2;
+    stroke: #E63946;
+    font-size: 74px;
+}
+
+@keyframes stroke {
+    0% {
+        fill: rgba(0,255,204,0);
+        stroke: rgba(230,57,70,1);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70% {
+        fill: rgba(0,255,204,0);
+        stroke: rgba(230,57,70,1);
+    }
+    80% {
+        fill: rgba(0,255,204,0);
+        stroke: rgba(230,57,70,1);
+        stroke-width: 3;
+    }
+    100% {
+        fill: rgba(230,57,70,1);
+        stroke: rgba(230,57,70,0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
+
+.wrapper {
+    background-color: #1A1A2E;
+}
+.modal button {
+  margin-top: 1.5rem;
+  background-color: transparent;
+  border: 1px solid #e63946;
+  border-radius: 3px;
+  color: #e63946;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.5rem;
+  text-transform: uppercase;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.modal button:hover {
+  background-color: rgba(230, 57, 70, 0.1);
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.4);
+}
