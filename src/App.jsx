@@ -233,9 +233,15 @@ export default function App() {
               className="btn-seleccionar"
               onClick={() => setJugadorActivo(0)}
             >
-              Select
+              {jugadorActivo === 0 ? (
+                <>
+                  <div className="custom-loader"></div>
+                  Select your characters...
+                </>
+              ) : (
+                "Select"
+              )}
             </button>
-            {jugadorActivo === 0 && <div className="custom-loader"></div>}
             <div className="personajes-seleccionados">
               {personajes[0].map((p) => (
                 <img
@@ -257,9 +263,15 @@ export default function App() {
               className="btn-seleccionar"
               onClick={() => setJugadorActivo(1)}
             >
-              Select
+              {jugadorActivo === 1 ? (
+                <>
+                  <div className="custom-loader"></div>
+                  Select your characters...
+                </>
+              ) : (
+                "Select"
+              )}
             </button>
-            {jugadorActivo === 1 && <div className="custom-loader"></div>}
             <div className="personajes-seleccionados">
               {personajes[1].map((p) => (
                 <img
@@ -281,9 +293,15 @@ export default function App() {
               className="btn-seleccionar"
               onClick={() => setJugadorActivo(2)}
             >
-              Select
+              {jugadorActivo === 2 ? (
+                <>
+                  <div className="custom-loader"></div>
+                  Select your characters...
+                </>
+              ) : (
+                "Select"
+              )}
             </button>
-            {jugadorActivo === 2 && <div className="custom-loader"></div>}
             <div className="personajes-seleccionados">
               {personajes[2].map((p) => (
                 <img
@@ -305,9 +323,15 @@ export default function App() {
               className="btn-seleccionar"
               onClick={() => setJugadorActivo(3)}
             >
-              Select
+              {jugadorActivo === 3 ? (
+                <>
+                  <div className="custom-loader"></div>
+                  Select your characters...
+                </>
+              ) : (
+                "Select"
+              )}
             </button>
-            {jugadorActivo === 3 && <div className="custom-loader"></div>}
             <div className="personajes-seleccionados">
               {personajes[3].map((p) => (
                 <img
