@@ -1,18 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 @media (max-width: 768px) {
   .roster-row {
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
   }
 
   .roster {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
 
   .content-inputs {
     padding: 0.75rem;
+    width: 100%;
   }
 
   .player-row {
@@ -22,11 +30,33 @@
   .player-input {
     width: 100px;
   }
+
+  .modal {
+    min-width: unset;
+    width: calc(100vw - 2rem);
+    padding: 1.25rem;
+  }
+
+  .modal-equipos {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .roster {
+    width: 40px;
+    height: 40px;
+  }
 }
 /* Fondo general */
 body {
   background-color: #0d0d1a;
   margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 0 1rem 2rem;
 }
 p{
     color: white;
@@ -61,10 +91,13 @@ p{
   align-items: center;
   gap: 4px;
   margin: 2rem auto;
+  width: 100%;
 }
 
 .roster-row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 4px;
 }
 
