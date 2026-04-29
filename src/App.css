@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
 @media (max-width: 768px) {
-  .lineaUno,
-  .lineaDos,
-  .lineaTres {
+  .roster-row {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -65,9 +63,7 @@ p{
   margin: 2rem auto;
 }
 
-.lineaUno,
-.lineaDos,
-.lineaTres {
+.roster-row {
   display: flex;
   gap: 4px;
 }

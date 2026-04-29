@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 
+const ROSTER = [
+  ["drmario", "mario", "luigi", "bowser", "peach", "yoshi", "dk", "falcon", "ganondorf"],
+  ["falco", "fox", "ness", "climbers", "kirby", "samus", "zelda", "link", "younglink"],
+  ["pichu", "pikachu", "puff", "watch", "marth", "roy"],
+];
+
 export default function App() {
   const [nombres, setNombres] = useState(["", "", "", ""]);
   const [jugadorActivo, setJugadorActivo] = useState(null);
@@ -71,156 +77,19 @@ export default function App() {
 
       <main>
         <div className="roster-container">
-          <div className="lineaUno">
-            <img
-              src="/characters/drmario.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("drmario")}
-            />
-            <img
-              src="/characters/mario.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("mario")}
-            />
-            <img
-              src="/characters/luigi.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("luigi")}
-            />
-            <img
-              src="/characters/bowser.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("bowser")}
-            />
-            <img
-              src="/characters/peach.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("peach")}
-            />
-            <img
-              src="/characters/yoshi.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("yoshi")}
-            />
-            <img
-              src="/characters/dk.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("dk")}
-            />
-            <img
-              src="/characters/falcon.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("falcon")}
-            />
-            <img
-              src="/characters/ganondorf.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("ganondorf")}
-            />
-          </div>
-          <div className="lineaDos">
-            <img
-              src="/characters/falco.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("falco")}
-            />
-            <img
-              src="/characters/fox.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("fox")}
-            />
-            <img
-              src="/characters/ness.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("ness")}
-            />
-            <img
-              src="/characters/climbers.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("climbers")}
-            />
-            <img
-              src="/characters/kirby.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("kirby")}
-            />
-            <img
-              src="/characters/samus.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("samus")}
-            />
-            <img
-              src="/characters/zelda.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("zelda")}
-            />
-            <img
-              src="/characters/link.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("link")}
-            />
-            <img
-              src="/characters/younglink.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("younglink")}
-            />
-          </div>
-          <div className="lineaTres">
-            <img
-              src="/characters/pichu.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("pichu")}
-            />
-            <img
-              src="/characters/pikachu.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("pikachu")}
-            />
-            <img
-              src="/characters/puff.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("puff")}
-            />
-            <img
-              src="/characters/watch.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("watch")}
-            />
-            <img
-              src="/characters/marth.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("marth")}
-            />
-            <img
-              src="/characters/roy.png"
-              alt="Seleccion personaje"
-              className="roster"
-              onClick={() => seleccionarPersonaje("roy")}
-            />
-          </div>
+          {ROSTER.map((fila, i) => (
+            <div key={i} className="roster-row">
+              {fila.map((personaje) => (
+                <img
+                  key={personaje}
+                  src={`/characters/${personaje}.png`}
+                  alt="Seleccion personaje"
+                  className="roster"
+                  onClick={() => seleccionarPersonaje(personaje)}
+                />
+              ))}
+            </div>
+          ))}
         </div>
         <div className="content-inputs">
           <div className="player-row">
